@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.infrastructure.Data;
+using SocialMedia.infrastructure.Filters;
 using SocialMedia.infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -37,16 +38,30 @@ namespace SocialMedia.api
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            })
+            .ConfigureApiBehaviorOptions(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
             });
 
             //-----------------Resolver las dependencias--------------------
 
-            //Cada vez que se utilice la interfaz IPostRepository se resolverá a través de la instancia de PostRepository
-            //Solo debemos cambiar cual va a ser nuestro repositorio a trabajar
-            services.AddTransient<IPostRepository, PostRepository>();
+            
             services.AddDbContext<SocialMediaContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SocialMedia"))
             );
+
+            //Cada vez que se utilice la interfaz IPostRepository se resolverá a través de la instancia de PostRepository
+            //Solo debemos cambiar cual va a ser nuestro repositorio a trabajar
+            services.AddTransient<IPostRepository, PostRepository>();
+
+            //Compatibilidad con MVC
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add<ValidationFilter>();
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

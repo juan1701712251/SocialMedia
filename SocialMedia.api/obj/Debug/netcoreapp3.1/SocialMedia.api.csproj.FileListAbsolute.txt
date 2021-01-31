@@ -70,3 +70,6 @@ C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\ne
 C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\obj\Debug\netcoreapp3.1\SocialMedia.api.MvcApplicationPartsAssemblyInfo.cs
