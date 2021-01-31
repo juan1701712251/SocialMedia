@@ -2,10 +2,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SocialMedia.Core.Interfaces;
+using SocialMedia.infrastructure.Data;
+using SocialMedia.infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +30,15 @@ namespace SocialMedia.api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            //-----------------Resolver las dependencias--------------------
+
+            //Cada vez que se utilice la interfaz IPostRepository se resolverá a través de la instancia de PostRepository
+            //Solo debemos cambiar cual va a ser nuestro repositorio a trabajar
+            services.AddTransient<IPostRepository, PostRepository>();
+            services.AddDbContext<SocialMediaContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SocialMedia"))
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
