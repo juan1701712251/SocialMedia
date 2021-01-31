@@ -73,3 +73,6 @@ C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\ne
 C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\obj\Debug\netcoreapp3.1\SocialMedia.api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll

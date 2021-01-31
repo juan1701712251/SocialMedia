@@ -1,4 +1,5 @@
 using AutoMapper;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -41,7 +42,7 @@ namespace SocialMedia.api
             })
             .ConfigureApiBehaviorOptions(options =>
             {
-                options.SuppressModelStateInvalidFilter = true;
+                //options.SuppressModelStateInvalidFilter = true;
             });
 
             //-----------------Resolver las dependencias--------------------
@@ -60,6 +61,9 @@ namespace SocialMedia.api
             services.AddMvc(options =>
             {
                 options.Filters.Add<ValidationFilter>();
+            }).AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
             });
 
         }
