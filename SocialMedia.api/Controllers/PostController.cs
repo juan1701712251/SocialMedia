@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
-using SocialMedia.infrastructure.Repositories;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SocialMedia.api.Controllers
@@ -14,24 +14,19 @@ namespace SocialMedia.api.Controllers
     public class PostController : ControllerBase
     {
         private readonly IPostRepository _postRepository;
+        private readonly IMapper _mapper;
 
-        public PostController(IPostRepository postRepository)
+        public PostController(IPostRepository postRepository, IMapper mapper)
         {
             _postRepository = postRepository;
+            _mapper = mapper;
         }
         //Este método se encarga de tomar las peticiones GET de la API y devolver en este caso los POSTS como JSON
         [HttpGet]
         public async Task<IActionResult> GetPosts()
         {
             var posts = await _postRepository.GetPosts();
-            var postsDto = posts.Select(x => new PostDto
-            {
-                PostId = x.PostId,
-                Date = x.Date,
-                Description = x.Description,
-                Image = x.Image,
-                UserId = x.UserId
-            });
+            var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
             return Ok(postsDto);
         }
 
@@ -39,30 +34,17 @@ namespace SocialMedia.api.Controllers
         public async Task<IActionResult> GetPost(int id)
         {
             var post = await _postRepository.GetPost(id);
-            var postDto = new PostDto
-            {
-                PostId = post.PostId,
-                Date = post.Date,
-                Description = post.Description,
-                Image = post.Image,
-                UserId = post.UserId
-            };
+            var postDto = _mapper.Map<PostDto>(post);
             return Ok(postDto);
         }
 
         [HttpPost]
         public async Task<IActionResult> InsertPost(PostDto postDto)
         {
-            var post = new Post
-            {
-                Date = postDto.Date,
-                Description = postDto.Description,
-                Image = postDto.Image,
-                UserId = postDto.UserId
-            };
+            var post = _mapper.Map<Post>(postDto);
             await _postRepository.InsertPost(post);
 
-            return Ok(postDto);
+            return Ok(post);
         }
     }
 }

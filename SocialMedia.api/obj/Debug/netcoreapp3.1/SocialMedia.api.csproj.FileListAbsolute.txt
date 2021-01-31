@@ -68,3 +68,5 @@ C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\ne
 C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\GOMEZ\Desktop\Sebastian\dotnet\SocialMedia\SocialMedia.api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
