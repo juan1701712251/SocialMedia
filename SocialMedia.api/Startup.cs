@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SocialMedia.Core.Interfaces;
+using SocialMedia.Core.Services;
 using SocialMedia.infrastructure.Data;
 using SocialMedia.infrastructure.Filters;
 using SocialMedia.infrastructure.Repositories;
@@ -42,7 +43,8 @@ namespace SocialMedia.api
             })
             .ConfigureApiBehaviorOptions(options =>
             {
-                //options.SuppressModelStateInvalidFilter = true;
+                //
+                options.SuppressModelStateInvalidFilter = true;
             });
 
             //-----------------Resolver las dependencias--------------------
@@ -54,7 +56,11 @@ namespace SocialMedia.api
 
             //Cada vez que se utilice la interfaz IPostRepository se resolverá a través de la instancia de PostRepository
             //Solo debemos cambiar cual va a ser nuestro repositorio a trabajar
+            services.AddTransient<IPostService, PostService>();
             services.AddTransient<IPostRepository, PostRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 
             //Compatibilidad con MVC
 

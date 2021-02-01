@@ -8,12 +8,12 @@ namespace SocialMedia.infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Post> builder)
         {
-            builder.HasKey(e => e.PostId);
+            builder.HasKey(e => e.Id);
 
             //Mapeamos la tabla de la base de datos, ya que esta en español
             builder.ToTable("Publicacion");
 
-            builder.Property(e => e.PostId)
+            builder.Property(e => e.Id)
                 .HasColumnName("IdPublicacion");
 
             builder.Property(e => e.UserId)
